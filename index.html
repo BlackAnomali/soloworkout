@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Anatomy & Workout Tracker</title>
+    <!-- Google Fonts untuk nuansa futuristik -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Canvas Utama tempat 3D Model dirender -->
+    <div id="webgl-container"></div>
+
+    <!-- UI Overlay: Judul / Header -->
+<header class="app-header">
+    <h1>SOLO_WORKOUT // 1.0</h1>
+    <p>Interactive 3D Anatomy & Muscle Mapping</p>
+</header>
+
+    <!-- Hotspot Interaktif / Label Pop-up Pertama (Muncul saat diklik/di-trigger) -->
+    <div id="hotspot-label" class="hud-box hidden">
+        <div class="hud-header">
+            <span id="muscle-title">BICEPS</span>
+            <span class="hud-status">ACTIVE</span>
+        </div>
+        <div class="hud-body">
+            <button id="view-more-btn" class="cyber-btn">VIEW MORE &gt;&gt;</button>
+        </div>
+        <div class="hud-line"></div>
+    </div>
+
+    <!-- Panel Detail Pop-up Kedua (Muncul dari Pojok Kanan Atas) -->
+    <div id="detail-panel" class="cyber-panel hidden">
+        <div class="panel-header">
+            <h2 id="panel-muscle-name">BICEPS</h2>
+            <button id="close-panel-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="panel-content">
+            <h3>WORKOUT RECOMMENDATION</h3>
+            <ul id="workout-list">
+                <li>- Barbell Curl</li>
+                <li>- Hammer Curl</li>
+                <li>- Concentration Curl</li>
+            </ul>
+        </div>
+        <div class="panel-footer">SYSTEM_ID: 0x98AF</div>
+    </div>
+
+    <!-- Import Library Three.js & OrbitControls via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- Script Utama -->
+    <script src="script.js"></script>
+</body>
+</html>
