@@ -222,14 +222,16 @@ const mouse = new THREE.Vector2();
 let hideTimer = null;
 let activeMuscleData = null;
 
-window.addEventListener('click', (event) => {
+// Ganti 'click' menjadi 'pointerdown' agar support sempurna di HP maupun PC
+window.addEventListener('pointerdown', (event) => {
+    // Normalisasi koordinat layar (aman untuk sentuhan HP maupun klik mouse)
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
 
     if (markerObjects.length > 0) {
-        // Hanya cek marker yang sedang aktif/tampak di layar
+        // Filter marker yang sedang aktif/tampak
         const visibleMarkers = markerObjects.filter(m => m.visible);
         const intersects = raycaster.intersectObjects(visibleMarkers);
 
